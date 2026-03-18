@@ -5,17 +5,19 @@ import java.util.ArrayList;
 
 public class DBConnection {
 	public static void main(String[] args) {
-		// check command line inputs
+		// Verify that the username, password, and database name were provided when the program started
 		if (args.length < 3) {
 			System.out.println("Usage: java DBConnection <username> <password> <database>");
 			return;
 		}
 
+		// Store the login details and the database address
 		String user = args[0];
 		String password = args[1];
 		String database = args[2];
 		String url = "jdbc:mariadb://localhost:3307/" + database;
 
+		// Create an empty list to hold the sales data we pull from the database
 		ArrayList<Sales> salesList = new ArrayList<>();
 
 		// connect to database
@@ -35,7 +37,7 @@ public class DBConnection {
 				 ResultSet rs = stmt.executeQuery()) {
 
 				while (rs.next()) {
-					// make object and add to list
+					// Grab the data from the current row, create a Sales object, and add it to the list
 					salesList.add(
 							new Sales(
 									rs.getInt("order_no"),
@@ -47,7 +49,7 @@ public class DBConnection {
 							));
 				}
 			}
-
+			// Check if any records were found and print them out
 			if (salesList.isEmpty()) {
 				System.out.println("No records found.");
 			} else {
