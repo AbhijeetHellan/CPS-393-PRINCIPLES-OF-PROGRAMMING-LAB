@@ -7,7 +7,7 @@ public class Sales {
 	String salesmanName;
 	double amount;
 	double commissionAmount;
-
+	// Constructor used to create a new Sales object and assign its initial values
 	public Sales(int orderNumber, String customerName, String customerCity, String salesmanName, double amount,
 			double commissionAmount) {
 		this.orderNumber = orderNumber;
