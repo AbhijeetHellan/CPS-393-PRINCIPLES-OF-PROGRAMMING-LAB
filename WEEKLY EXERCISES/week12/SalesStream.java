@@ -57,8 +57,7 @@ public class SalesStream {
 		System.out.printf("%-15s | %-10s%n", "Salesman Name", "Total Commission");
 		System.out.println("--------------------------------------------------");
 
-		// Uses Streams again to calculate and print the commission money for each
-		// person
+		// Uses Streams again to calculate and print the commission money for each person
 		salesPersonList.stream().forEach(sp -> {
 			double totalComm = sp.getTotalSales() * sp.getCommission();
 			System.out.printf("%-15s | $%,10.2f%n", sp.getName(), totalComm);
